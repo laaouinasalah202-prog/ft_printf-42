@@ -43,14 +43,14 @@ int	ft_printf(const char *str, ...)
 	len = 0;
 	while (*str)
 	{
-		if (*str == '%')
+		if (*str == '%' && *(str + 1))
 		{
 			ft_convert((str + 1), &len, p);
 			if (!*str)
 				break ;
-			str += 1;
+			str += 2;
 		}
-		else
+		if (*str != '%')
 			ft_putchar(*str, &len);
 		str++;
 	}
