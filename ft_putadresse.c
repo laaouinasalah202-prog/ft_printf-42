@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include "printf.h"
-#include <stdio.h>
 
 void	ft_putadresse(void *s, int *c)
 {
@@ -18,7 +17,7 @@ void	ft_putadresse(void *s, int *c)
 
 	if (!s)
 	{
-		ft_putstr("(nil)", &(*c));
+		ft_putstr("(nil)", c);
 		c++;
 		return ;
 	}

@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include "printf.h"
-#include <stdio.h>
 
 static char	*ft_getnmber(unsigned int nb, unsigned int *l)
 {

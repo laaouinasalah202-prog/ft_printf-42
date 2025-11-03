@@ -10,10 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include "printf.h"
-#include <stdio.h>
 
 void	ft_putstr(const char *s, int *c)
 {
+	if (!s)
+	{
+		write(1, "(null)", 6);
+		*c += 6;
+		return ;
+	}
 	while (*s)
 	{
 		ft_putchar(*s, c);

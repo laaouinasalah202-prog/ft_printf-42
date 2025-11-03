@@ -10,25 +10,24 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include "printf.h"
-#include <stdio.h>
 
 static void	ft_convert(const char *str, int *c, va_list ap)
 {
 	if (*str == 'c')
 		ft_putchar(va_arg(ap, int), c);
-	if (*str == 's')
+	else if (*str == 's')
 		ft_putstr(va_arg(ap, char *), c);
-	if (*str == 'p')
+	else if (*str == 'p')
 		ft_putadresse(va_arg(ap, void *), c);
-	if (*str == 'd' || *str == 'i')
+	else if (*str == 'd' || *str == 'i')
 		ft_putnbr(va_arg(ap, int), c);
-	if (*str == 'u')
+	else if (*str == 'u')
 		ft_putnbru(va_arg(ap, unsigned int), c);
-	if (*str == 'x')
+	else if (*str == 'x')
 		ft_puthex(va_arg(ap, unsigned int), c, "0123456789abcdef");
-	if (*str == 'X')
+	else if (*str == 'X')
 		ft_puthex(va_arg(ap, unsigned int), c, "0123456789ABCDEF");
-	if (*str == '%')
+	else if (*str == '%')
 		ft_putchar('%', c);
 }
 
@@ -45,12 +44,11 @@ int	ft_printf(const char *str, ...)
 	{
 		if (*str == '%' && *(str + 1))
 		{
-			ft_convert((str + 1), &len, p);
-			if (!*str)
-				break ;
-			str += 2;
+			ft_convert((++str), &len, p);
+			if (*str == '\0')
+				return (len);
 		}
-		if (*str != '%')
+		else if (*str != '%')
 			ft_putchar(*str, &len);
 		str++;
 	}

@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include "printf.h"
-#include <stdio.h>
 
 void	ft_puthex(unsigned long l, int *c, char *base)
 {
