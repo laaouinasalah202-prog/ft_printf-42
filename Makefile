@@ -1,30 +1,27 @@
 SRCS = ft_printf.c ft_putadresse.c ft_putchar.c ft_puthex.c ft_putnbr.c ft_putstr.c ft_putnbru.c
 
 OBJS = ${SRCS:.c=.o}
-DEPS = ${SRCS:.c=.d}
 
 LIB = libftprintf.a
 
-CC = gcc
+CC = cc
 
-CFLAGS = -Wall -Werror -Wextra -I 
+CFLAGS = -Wall -Werror -Wextra
 
-.c.o:
-		${CC} ${CFLAGS} -MMD -c $< -o ${<:.c=.o}
+%.o: %.c
+	${CC} ${CFLAGS} -c $< -o $@
 
-${LIB}:	${OBJS}
-		ar -rsc ${LIB} ${OBJS}
+${LIB}: ${OBJS}
+	ar -rcs ${LIB} ${OBJS}
 
-all: 	${LIB}
+all: ${LIB}
 
-clean:	
-		rm -f ${OBJS} ${DEPS}
+clean:
+	rm -f ${OBJS}
 
-fclean:	clean;
-		rm -f ${LIB}
+fclean: clean
+	rm -f ${LIB}
 
-re:	fclean all
+re: fclean all
 
--include ${DEPS}
-
-.PHONY: all clean fclean re 
+.PHONY: all clean fclean re

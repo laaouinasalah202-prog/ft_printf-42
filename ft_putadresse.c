@@ -9,7 +9,7 @@
 /*   Updated: 2025-10-31 14:18:23 by slaaouin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "printf.h"
+#include "ft_printf.h"
 
 void	ft_putadresse(void *s, int *c)
 {

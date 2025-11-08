@@ -9,7 +9,7 @@
 /*   Updated: 2025-10-30 13:59:47 by slaaouin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "printf.h"
+#include "ft_printf.h"
 
 static void	ft_convert(const char *str, int *c, va_list ap)
 {
@@ -52,5 +52,6 @@ int	ft_printf(const char *str, ...)
 			ft_putchar(*str, &len);
 		str++;
 	}
+	va_end(p);
 	return (len);
 }

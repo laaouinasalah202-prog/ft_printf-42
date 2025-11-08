@@ -9,7 +9,7 @@
 /*   Updated: 2025-11-02 08:51:15 by slaaouin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "printf.h"
+#include "ft_printf.h"
 
 static char	*ft_getnmber(unsigned int nb, unsigned int *l)
 {
